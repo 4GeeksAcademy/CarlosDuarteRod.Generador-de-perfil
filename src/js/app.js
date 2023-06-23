@@ -33,14 +33,30 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${variables.name ? variables.name : "Your name"} ${
+    variables.lastname ? variables.lastname : "and your last name"
+  }</h1>
+          <h2>${variables.role ? variables.role : "Role"}</h2>
+          <h3>${variables.city ? variables.city : "City"},${
+    variables.country ? variables.country : "Country"
+  } </h3>
+          <ul class="${
+            variables.socialMediaPosition
+              ? variables.socialMediaPosition
+              : "position-right"
+          } ">
+            <li><a href="${
+              variables.twitter
+            }"><i class="fa-brands fa-twitter" style="color: #fcfcfc;"></i></a></li>
+            <li><a href="${
+              variables.github
+            }"><i class="fab fa-github"></i></a></li>
+            <li><a href="${
+              variables.linkedin
+            }"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="${
+              variables.instagram
+            }"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -54,9 +70,11 @@ window.onload = function() {
     // if includeCover is true the algorithm should
     includeCover: true,
     // this is the url of the image that will used as background for the profile cover
-    background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da",
+    background:
+      "https://img.freepik.com/foto-gratis/disparo-gran-angular-solo-arbol-que-crece-cielo-nublado-puesta-sol-rodeada-cesped_181624-22807.jpg?q=10&h=200",
     // this is the url for the profile avatar
-    avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
+    avatarURL:
+      "https://img.freepik.com/vector-premium/diseno-avatar-persona_24877-38133.jpg?w=2000",
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
     // social media usernames
